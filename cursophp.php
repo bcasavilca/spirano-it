@@ -11,10 +11,6 @@ $solucao=$_POST['solucao'];
 $sql="INSERT INTO tabela(data,hora,id,status,problema,solucao) VALUES ('$data','$hora','$id','$status','$problema','$solucao')";
 
 
-	$response = array("success" => true);
-	echo json_encode($response);
-
-	/*
 if(mysqli_query($conexao, $sql)){
 echo "Usuario cadastrado com sucesso";
 
@@ -23,6 +19,6 @@ echo "Usuario cadastrado com sucesso";
 }
 mysqli_close($conexao);
 
-*/
+
 
 ?>

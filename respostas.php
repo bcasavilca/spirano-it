@@ -7,13 +7,25 @@ include_once("conexao.php");
   <head>
     <title>Cursophp</title>
     <meta charset="utf-8">
+    <!–– css––>
+    <link rel="stylesheet" href="style.css" >
+    <!–– bootstrap ––>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
+
+
   </head>
   <body style="background-color:#E0C9A6;"> 
-  	<div class="navbar">
-  <a href="http://localhost/cursophp/index.html" class="active">Formulario</a>
-  <a href="http://localhost/cursophp/respostas.php">Respostas</a> 
-  <a href="http://localhost/cursophp/grafico.php">Grafico</a>  
-</div>
+
+<nav class="navbar navbar-light" style="background-color: green;">
+  <div class="containerleft">
+  <nav class="navbar navbar-expand-lg navbar-light green">
+    <a class="navbar-brand" href="http://localhost/cursophp/index.html">Formulario</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/respostas.php">Storico</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Grafico</a>
+  </nav>
+</div>.
+</nav>
+
    <?php
    if(isset($_SESSION['msg'])){
    echo $_SESSION['msg'];

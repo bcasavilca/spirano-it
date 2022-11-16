@@ -2,6 +2,11 @@
 <html lang="pt-br">
   
  <head>
+  <!–– css––>
+    <link rel="stylesheet" href="style.css" >
+        <!–– bootstrap ––>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  
+        
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript">
@@ -35,11 +40,16 @@
   
   </head>
  <body>
-  <div class="navbar">
-  <a href="http://localhost/cursophp/cursophp.html" class="active">Formulario</a>
-  <a href="http://localhost/cursophp/respostas.php">Respostas</a> 
-  <a href="http://localhost/cursophp/grafico.php">Grafico</a>  
+  <nav class="navbar navbar-light" style="background-color: green;">
+  <div class="containerleft">
+  <nav class="navbar navbar-expand-lg navbar-light green">
+    <a class="navbar-brand" href="http://localhost/cursophp/index.html">Formulario</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/respostas.php">Storico</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Grafico</a>
+  </nav>
+
 </div>
+</nav>
         
         <div id="chart_container"></div>
       </body>
