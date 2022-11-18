@@ -2,6 +2,9 @@
 <html lang="pt-br">
   
  <head>
+  
+    <!–– site responsivo ––>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!–– css––>
     <link rel="stylesheet" href="style.css" >
         <!–– bootstrap ––>
@@ -40,12 +43,14 @@
   
   </head>
  <body>
-  <nav class="navbar navbar-light" style="background-color: green;">
+  <nav class="navbar fixed-bottom  navbar-light" style="background-color: green;">
   <div class="containerleft">
   <nav class="navbar navbar-expand-lg navbar-light green">
     <a class="navbar-brand" href="http://localhost/cursophp/index.html">Formulario</a>
     <a class="navbar-brand" href="http://localhost/cursophp/respostas.php">Storico</a>
     <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Grafico</a>
+     <a class="navbar-brand" href="javascript:window.print()">Imprimir</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Enviar</a>
   </nav>
 
 </div>

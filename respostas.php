@@ -7,6 +7,8 @@ include_once("conexao.php");
   <head>
     <title>Cursophp</title>
     <meta charset="utf-8">
+    <!–– site responsivo ––>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!–– css––>
     <link rel="stylesheet" href="style.css" >
     <!–– bootstrap ––>
@@ -16,12 +18,14 @@ include_once("conexao.php");
   </head>
   <body style="background-color:#E0C9A6;"> 
 
-<nav class="navbar navbar-light" style="background-color: green;">
+<nav class="navbar fixed-bottom  navbar-light" style="background-color: green;">
   <div class="containerleft">
   <nav class="navbar navbar-expand-lg navbar-light green">
     <a class="navbar-brand" href="http://localhost/cursophp/index.html">Formulario</a>
     <a class="navbar-brand" href="http://localhost/cursophp/respostas.php">Storico</a>
     <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Grafico</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Imprimir</a>
+    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Enviar</a>
   </nav>
 </div>.
 </nav>
