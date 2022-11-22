@@ -30,7 +30,7 @@
   } );
   </script>
   </head>
-  <body> 
+  <body style="width: 300px;"> 
  
 
 <nav class="navbar fixed-bottom  navbar-light" style="background-color: green;">
@@ -51,13 +51,12 @@
 <h2 class="h2 mt-5 margem"></h2>
   
 
-<form id="form" action="cursophp.php" method="post" >
-
+<form class="form"id="form" action="cursophp.php" method="post" >
 <p>Data: <input type="date" name="data" id="data"></p>
-<label for="">hora:</label><br>
+<label for="">hora:</label>
 <input type="time" name="hora"><br>
    	
-<label for="">Pannelo Id:</label><br>
+<label for="">Pannelo Id:</label>
 
 <select class="0-92" type="number" name="id" ></select>
 <script type="text/javascript">
@@ -81,7 +80,7 @@
 <label for="">Resultado: </label><br>
 <input type="text" name="resultado"><br>
 
-
+<br>
 
 
   
@@ -94,17 +93,18 @@
 </html>
 
 <script type="text/javascript">
+document.querySelector("#submit").addEventListener("click",function(){
+  var GetData = "data"+$("input[data=data]").val();
+$.ajax({
+  type:"post",
+  data: GetData,
+  url:"cursophp.php",
+  success:function(response)
+  {
+    console.log("data submited");
+    console.log(response);
+    $("#result").html("Form submited!");
+  }
+});
 
-  $(document).ready(function(){
-   $('#submit').click(function(){
-    var data = $('#data').val();
-
-    $('#alert').html('');
-    if (data == '') {
-      $('#alert').html('Preencher data');
-      $('#alert').addClass("alert-danger");
-      return false;
-    }
-   });
-  });
-  </script>
+</script>
