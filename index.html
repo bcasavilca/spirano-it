@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Cursophp</title>
+    <title>Spirano</title>
     <meta charset="utf-8">
     <!–– site responsivo ––>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,18 +31,16 @@
   </script>
   </head>
 
-<body style="width: 300px;"> 
+<body  > 
  
-<nav class="navbar fixed-top  navbar-light" style="background-color: green;">
-  <p>Attestato di Intervenzione</p></nav>
 
 
-<nav class="navbar fixed-bottom  navbar-light" style="background-color: green;">
+<nav class="navbar fixed-bottom  navbar-light" style="background-color: green ">
   <div class="containerleft ">
   <nav class="navbar navbar-expand-lg navbar-light green">
-    <a class="navbar-brand" href="http://localhost/cursophp/index.html">Formulario</a>
-    <a class="navbar-brand" href="http://localhost/cursophp/respostas.php">Storico</a>
-    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Grafico</a><!--
+    <a class="navbar-brand" href="index.html">Formulario</a>
+    <a class="navbar-brand" href="respostas.php">Storico</a>
+    <a class="navbar-brand" href="grafico.php">Grafico</a><!--
     <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Imprimir</a>
     <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Enviar</a>-->
 
@@ -53,17 +51,17 @@
 <!--alerta dentro do html-->
 <div class="alert" id="alert" role="alert"></div>
 <h2 class="h2 mt-5 margem"></h2>
-  
-  
+                       
+ 
 
-<form class="form"id="form" action="cursophp.php" method="post" >
+<form class="form"id="form" action="" method="post" >
 <p>Data: <input type="date" name="data" id="data"></p>
 <label for="">hora:</label>
-<input type="time" name="hora"><br>
+<input type="time" name="hora" id="hora"><br>
    	
 <label for="">Pannelo Id:</label>
 
-<select class="0-92" type="number" name="id" ></select>
+<select class="0-92" type="number" name="id" id="id"></select>
 <script type="text/javascript">
   $(function(){
     var $select = $(".0-92");
@@ -77,39 +75,62 @@
 <br>
 
 <label for="">Status: </label><br>
-<input type="number" name="status"><br>
+<input type="number" name="status" id="status"><br>
 <label for="">Problema: </label><br>
-<input type="text" name="problema"><br>
+<input type="text" name="problema"id="problema"><br>
 <label for="">Solucao: </label><br>
-<input type="text" name="solucao"><br>
+<input type="text" name="solucao" id="solucao"><br>
 <label for="">Resultado: </label><br>
-<input type="text" name="resultado"><br>
+<input type="text" name="resultado" id="resultado"><br>
 
 <br>
 
 
   
 
-<button id="submit" name="submit" class="btn btn-info" value="cadastrar">Cadastrar</button>
 
+<input type="button" name="submit" id="submit" class="btn btn-info" value="Cadastrar" />  
+<span id="error_message" class="text-danger"></span>  
+<span id="success_message" class="text-success"></span>
 
     </form>
+    
   </body>
 </html>
 
-<script type="text/javascript">
-document.querySelector("#submit").addEventListener("click",function(){
-  var GetData = "data"+$("input[data=data]").val();
-$.ajax({
-  type:"post",
-  data: GetData,
-  url:"cursophp.php",
-  success:function(response)
-  {
-    console.log("data submited");
-    console.log(response);
-    $("#result").html("Form submited!");
-  }
-});
+<script type="text/javascript">$(document).ready(function(){  
+    $('#submit').click(function(){  
+         var data = $('#data').val(); 
+         var hora = $('#hora').val(); 
+         var id = $('#id').val(); 
+         var status = $('#status').val(); 
+         var problema = $('#problema').val();
+         var solucao = $('#solucao').val();  
 
-</script>
+
+
+           
+         if(data == '' || hora == '' || id == '' || status == ''
+         || problema == ''|| solucao == '')  
+         {  
+              $('#error_message').html("Tutti i campi sono obbligatori");  
+         }  
+         else  
+         {  
+              $('#error_message').html('');  
+              $.ajax({  
+                   url:"cursophp.php",  
+                   method:"POST",  
+                   data:{data:data,hora:hora,id:id,status:status,problema:problema,solucao:solucao},  
+                   success:function(data){  
+                        $("form").trigger("reset");  
+                        $('#success_message').fadeIn().html(data);  
+                        setTimeout(function(){  
+                             $('#success_message').fadeOut("Slow");  
+                        }, 2000);  
+                   }  
+              });  
+         }  
+    });  
+});  
+</script>  

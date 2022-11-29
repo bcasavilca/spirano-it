@@ -1,10 +1,10 @@
-
+html{
+	overflow-y: scroll!important ;
+}
 body{
-	width:300px;
-	height:400px; 
+	 
 	margin: 20px !important;
 	
-	background-color:lightgreen !important;
 }
 @media only screen and (max-width: 800px){
 
@@ -13,6 +13,6 @@ body{
 		object-fit: top;
 	}
 }
-.form{
-	background-color: yellow;
+.navbar fixed-bottom  navbar-light{
+	display: block;
 }
