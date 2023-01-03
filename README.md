@@ -3,6 +3,6 @@
 
 
 fix ideas
-# Data have to show actual day
-# Ore have to show actual hour
+# set today as defaut in input date
+#  set current hour as defaut in input time
 # button envia inside html tag 
