@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Spirano</title>
+    <script src="./removeBanner.js"></script>
+    <title>manutenzione degli impianti</title>
     <meta charset="utf-8">
     <!–– site responsivo ––>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,69 +32,88 @@
   </script>
   </head>
 
-<body  > 
+<body  >  
  
 
 
-<nav class="navbar fixed-bottom  navbar-light" style="background-color: green ">
-  <div class="containerleft ">
-  <nav class="navbar navbar-expand-lg navbar-light green">
-    <a class="navbar-brand" href="index.html">Formulario</a>
-    <a class="navbar-brand" href="respostas.php">Storico</a>
-    <a class="navbar-brand" href="grafico.php">Grafico</a><!--
-    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Imprimir</a>
-    <a class="navbar-brand" href="http://localhost/cursophp/grafico.php">Enviar</a>-->
-
+<nav class="">
+  <div class="">
+  <nav class="">
+    <a class="" href="index.html"> Formulario </a>
+    <a class="" href="respostas.php"> Storico </a>
+    <a class="" href="grafico.php"> Grafico </a>
   </nav>
 </div>
 </nav>
 
-<!--alerta dentro do html-->
+<!--alerta dentro do html
 <div class="alert" id="alert" role="alert"></div>
-<h2 class="h2 mt-5 margem"></h2>
+<h2 class="h2 mt-5 margem"></h2>-->
                        
- 
+<h4>Registro di intervento</h4>
+<hr>
+ <!--start-->
+<form class="form" id="form" action="" method="post" >
 
-<form class="form"id="form" action="" method="post" >
-<p>Data: <input type="date" name="data" id="data"></p>
-<label for="">hora:</label>
-<input type="time" name="hora" id="hora"><br>
-   	
-<label for="">Pannelo Id:</label>
+<!--input date and hour set with current day and hour-->
+<p>Data:  </br><input type="date" name="data" id="dateDefault" class="date"></p>
+<p>Ore:  </br><input type="time" name="hora" id="hora" class="time"></p>
+<script>
+   var date = new Date();
+// This will set the current date and time in both the inputs 
+var currentDate = date.toISOString().substring(0 , 10);
+var currentTime = date.toISOString().substring(11 , 16);
+document.querySelector('.date').value = currentDate;
+document.querySelector('.time').value = currentTime;
+</script>
+<!----> 
 
-<select class="0-92" type="number" name="id" id="id"></select>
+<p>Impianto: </br><select name="local" id="pet-select">
+    <option value=""> Selezione </option>
+    <option value="">Spirano</option>
+    <option value="">Monza</option>
+    <option value="">Ciserano</option>
+    <option value="">Valbrembilla</option>
+
+</select></p> 
+
+<p>Codice: </br><select class="0-92" type="number" name="id" id="id"></select></p>
 <script type="text/javascript">
   $(function(){
     var $select = $(".0-92");
     for (i=1;i<=92;i++){
         $select.append($('<option></option>').val(i).html(i))
-    }
+    } 
 });
 </script>
 
-
-<br>
-
-<label for="">Status: </label><br>
-<input type="number" name="status" id="status"><br>
-<label for="">Problema: </label><br>
-<input type="text" name="problema"id="problema"><br>
-<label for="">Solucao: </label><br>
-<input type="text" name="solucao" id="solucao"><br>
-<label for="">Resultado: </label><br>
-<input type="text" name="resultado" id="resultado"><br>
-
-<br>
+<hr>
 
 
-  
+<p>Osservazione: 
+<textarea id="problema" name="problema" rows="3" cols="33">
+</textarea></p>
 
+<hr>
 
-<input type="button" name="submit" id="submit" class="btn btn-info" value="Cadastrar" />  
+<p>Descrizione di lavoro:
+<textarea id="solucao" name="solucao" rows="3" cols="33">
+</textarea></p>
+
+<hr>
+
+<p>Foto: </br>
+<form action="/action_page.php">
+  <input type="file" id="myFile" name="filename"></br>
+  <input type="file" id="myFile" name="filename">
+</form></p>
+
+<input type="button" name="submit" id="submit" class="btn btn-info" value="Invia" ;/>  
 <span id="error_message" class="text-danger"></span>  
 <span id="success_message" class="text-success"></span>
 
-    </form>
+</form>
+</br></br>
     
   </body>
 </html>
@@ -103,14 +123,13 @@
          var data = $('#data').val(); 
          var hora = $('#hora').val(); 
          var id = $('#id').val(); 
-         var status = $('#status').val(); 
          var problema = $('#problema').val();
          var solucao = $('#solucao').val();  
 
 
 
            
-         if(data == '' || hora == '' || id == '' || status == ''
+         if(data == '' || hora == '' || id == ''
          || problema == ''|| solucao == '')  
          {  
               $('#error_message').html("Tutti i campi sono obbligatori");  
@@ -121,7 +140,7 @@
               $.ajax({  
                    url:"cursophp.php",  
                    method:"POST",  
-                   data:{data:data,hora:hora,id:id,status:status,problema:problema,solucao:solucao},  
+                   data:{data:data,hora:hora,id:id,problema:problema,solucao:solucao},  
                    success:function(data){  
                         $("form").trigger("reset");  
                         $('#success_message').fadeIn().html(data);  
